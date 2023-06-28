@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <input type="file">
+        <div>some</div>
+        <img src="https://staticfileserver.onrender.com/73fbc02f9e51c2197baefbced9435594"/>
+        <script>
+            const inp = document.querySelector('input')
+            inp.onchange = e=> {
+                e.preventDefault()
+                const data = new FormData();
+                data.append('file', e.target.files[0])
+                fetch('https://staticfileserver.onrender.com/upload', {
+                    method: 'post',
+                    headers: {
+                        'Access-Control-Allow-Origin': 'https://staticfileserver.onrender.com',
+                        'Access-Control-Allow-Methods': 'GET, POST',
+                        'Access-Control-Allow-Headers': 'content-type'
+                    },
+                    body: data
+                }).then()
+            }
+            
+        </script>
+    </body>
+</html>
